@@ -10,5 +10,4 @@ def write(rel_path, content):
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(content, encoding="utf-8")
 
-# The complete generator is maintained in this file; this trigger commit
-# causes GitHub Actions to execute it and materialize the project.
+# Trigger GitHub Actions to recover and execute the original generator.
