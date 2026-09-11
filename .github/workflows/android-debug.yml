@@ -31,9 +31,14 @@ jobs:
           include-templates: true
       - name: Import
         run: godot --headless --path DescontrolZombies --editor --quit-after 10
+      - name: Install Android Gradle build template
+        run: |
+          mkdir -p build
+          godot --headless --path DescontrolZombies --install-android-build-template --export-debug Android build/DescontrolZombies-template-bootstrap.apk
       - name: Export APK
         run: |
           mkdir -p build
+          rm -f build/DescontrolZombies-template-bootstrap.apk
           godot --headless --path DescontrolZombies --export-debug Android build/DescontrolZombies-debug.apk
       - uses: actions/upload-artifact@v4
         with:
