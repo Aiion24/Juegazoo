@@ -22,8 +22,10 @@ jobs:
         with:
           python-version: '3.x'
 
-      - name: Generate Godot project
-        run: python create_descontrolzombies.py
+      - name: Recover and run original generator
+        run: |
+          git show 4ed86399e5528625094f915b1fdb059e33b21270:create_descontrolzombies.py > /tmp/create_descontrolzombies.py
+          python /tmp/create_descontrolzombies.py
 
       - name: Commit generated project
         run: |
